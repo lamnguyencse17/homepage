@@ -5,7 +5,7 @@ services:
     image: lamprojects-homepage
     build:
       context: .
-      dockerfile: /Dockerfile
+      dockerfile: Dockerfile
     ports:
       - 8000:8000
     restart: always
