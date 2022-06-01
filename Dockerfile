@@ -3,7 +3,6 @@ FROM node:18-alpine
 RUN apk update && apk upgrade
 
 WORKDIR /usr/src/app
-RUN npm i -g yarn
 COPY . .
 
 
