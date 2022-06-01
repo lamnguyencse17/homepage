@@ -11,5 +11,10 @@ pipeline {
               sh 'bash ./scripts/build.sh'
           }
       }
+      stage('Deploy') {
+          steps {
+              sh 'docker-compose up'
+          }
+      }
   }
 }
