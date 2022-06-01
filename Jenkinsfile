@@ -18,7 +18,7 @@ pipeline {
       }
       stage('Deploy') {
           steps {
-              sh 'docker build .'
+              sh 'docker build . -t lamprojects-homepage'
               sh 'docker-compose up'
           }
       }

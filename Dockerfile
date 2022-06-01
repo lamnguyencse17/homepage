@@ -9,4 +9,4 @@ RUN yarn build
 
 
 EXPOSE 8000
-CMD ["node_modules/.bin/next", "start"]
+CMD ["node_modules/.bin/next", "start", "-p", "8000"]
