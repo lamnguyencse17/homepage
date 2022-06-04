@@ -1,0 +1,8 @@
+@import '@/styles/color.scss';
+
+.body {
+    background-color: $background-color;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,63 @@
+@import '@/styles/color.scss';
+@import '@/styles/media.scss';
+
+.intro {
+    display: flex;
+    @include desktop {
+        flex-direction: row;
+    }
+    @include tablet {
+        flex-direction: row;
+    }
+    @include mobile {
+        flex-direction: column;
+    }
+    max-height: 20em;
+}
+
+.introImageWrapper {
+    @include desktop {
+        flex: 0.2;
+    overflow: hidden;
+    position: relative;
+    }
+    @include tablet {
+        flex: 0.3;
+    overflow: hidden;
+    position: relative;
+    }
+}
+
+.introImage {
+    @include desktop {
+        top: -200px !important;
+    }
+    object-fit: cover !important;
+}
+
+.introText {
+    padding: 0 5rem;
+    @include desktop {
+        color: $alt-color;
+        font-size: 1.5em;
+        text-align: justify;
+        flex: 0.8;
+        margin: auto;
+    }
+    @include tablet {
+        color: $alt-color;
+        font-size: 1.5em;
+        text-align: justify;
+        flex: 0.7;
+        margin: auto;
+    }
+    color: $alt-color;
+    font-size: 1.5em;
+    text-align: justify;
+    flex: 0.8;
+    margin: auto;
+}
+
+.introLine {
+    line-height: 1.5em;
+}

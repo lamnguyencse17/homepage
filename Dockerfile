@@ -1,7 +1,4 @@
 FROM node:18-alpine as dependencies
-
-RUN apk update && apk upgrade
-
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
