@@ -1,6 +1,5 @@
 import Footer from "./layout/footer";
 import Navbar from "./layout/navbar";
-import styles from "@/styles/components/layout.module.scss";
 import { motion } from "framer-motion";
 
 interface LayoutProps {

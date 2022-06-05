@@ -1,9 +1,11 @@
-FROM node:18-alpine as dependencies
+FROM node:lts-alpine3.14 as dependencies
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
-FROM node:18-alpine as builder
+FROM node:lts-alpine3.14 as builder
+RUN apk update && \
+  apk add --no-cache libc6-compat autoconf automake libtool make tiff jpeg zlib zlib-dev pkgconf nasm file gcc musl-dev
 WORKDIR /usr/src/app
 COPY . .
 COPY --from=dependencies /usr/src/app/node_modules ./node_modules
