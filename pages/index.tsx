@@ -14,9 +14,9 @@ const Home: NextPage = () => {
           content="A page about Nguyễn Quang Lâm - A fullstack developer"
         />
       </Head>
-      <main className="flex flex-col gap-10">
+      <main className="flex flex-col gap-16">
         <div className="border-b-2 border-blue-100">
-          <div className="w-fit whitespace-nowrap px-2">
+          <div className="w-fit whitespace-nowrap px-2 mb-19">
             <Link href="#about">
               <a className="text-3xl font-montserrat">About Me</a>
             </Link>

@@ -16,16 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="flex flex-col">
       <Navbar />
-      <motion.main
-        variants={pageMotionVariant}
-        initial="hidden"
-        animate="enter"
-        exit="exit"
-        transition={{ type: "linear" }}
-        className="w-full h-full flex-1 my-10 py-5"
-      >
-        {children}
-      </motion.main>
+      {children}
       <Footer />
     </div>
   );

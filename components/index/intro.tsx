@@ -2,12 +2,13 @@ import Image from "next/image";
 import profilePic from "@/assets/NQL.jpg";
 import About from "./intro/about";
 import Contact from "./intro/contact";
+import Link from "next/link";
 
 const Intro = () => {
   return (
     <section
       id="about"
-      className="container mx-auto flex md:flex-row flex-col h-fit"
+      className="container mx-auto flex md:flex-row flex-col h-fit items-center"
     >
       <div className="overflow-hidden h-auto px-2 w-full">
         <Image
