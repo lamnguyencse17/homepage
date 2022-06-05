@@ -1,6 +1,8 @@
 import Intro from "components/index/intro";
+import Skill from "components/index/skill";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -11,11 +13,19 @@ const Home: NextPage = () => {
           name="description"
           content="A page about Nguyễn Quang Lâm - A fullstack developer"
         />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <Intro />
+      <main className="flex flex-col gap-10">
+        <div className="border-b-2 border-blue-100">
+          <div className="w-fit whitespace-nowrap px-2">
+            <Link href="#about">
+              <a className="text-3xl font-montserrat">About Me</a>
+            </Link>
+          </div>
+          <Intro />
+        </div>
+        <div className="border-b-2 border-blue-100">
+          <Skill />
+        </div>
       </main>
     </div>
   );

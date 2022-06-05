@@ -25,8 +25,8 @@ const Layout = ({ children }: LayoutProps) => {
         className="w-full h-full flex-1 my-10 py-5"
       >
         {children}
-        <Footer />
       </motion.main>
+      <Footer />
     </div>
   );
 };
