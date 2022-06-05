@@ -4,7 +4,7 @@ import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
-    <div className="container">
+    <div className="container mx-auto">
       <Head>
         <title>Nguyễn Quang Lâm</title>
         <meta
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Intro></Intro>
+        <Intro />
       </main>
     </div>
   );

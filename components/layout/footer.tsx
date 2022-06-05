@@ -1,11 +1,7 @@
-import styles from "@/styles/components/layout/footer.module.scss";
-
 const Footer = () => {
   return (
-    <footer>
-      <div className={styles.footer}>
-        <div className={styles.note}>© Nguyễn Quang Lâm 2022</div>
-      </div>
+    <footer className="w-full h-12 flex items-center justify-center bg-blue-600 mt-10 fixed bottom-0 left-0">
+      <p className="text-3xl text-white max-w-fit">© Nguyễn Quang Lâm 2022</p>
     </footer>
   );
 };
