@@ -1,3 +1,5 @@
+import { Variants } from "framer-motion";
+
 const cardVariants: Variants = {
   offscreen: {
     x: 500,
