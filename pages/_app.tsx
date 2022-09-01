@@ -1,19 +1,24 @@
 import "../styles/globals.css";
+import "@fontsource/space-mono";
+import { Box, ChakraProvider, Divider, Flex } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import Layout from "../components/layout";
 import { AnimatePresence } from "framer-motion";
+import Navbar from "../components/root/navbar";
+import theme from "../libs/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
-      {/* <AnimatePresence
-        exitBeforeEnter
-        initial={false}
-        onExitComplete={() => window.scrollTo(0, 0)}
-      > */}
-      <Component {...pageProps} />
-      {/* </AnimatePresence> */}
-    </Layout>
+    <AnimatePresence exitBeforeEnter>
+      <ChakraProvider theme={theme}>
+        <Flex height="100%" width="100%" direction="row" gap={2}>
+          <Navbar />
+          <Divider orientation="vertical" />
+          <Box flex={1}>
+            <Component {...pageProps} />
+          </Box>
+        </Flex>
+      </ChakraProvider>
+    </AnimatePresence>
   );
 }
 
