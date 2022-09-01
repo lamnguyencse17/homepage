@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text, Link as ChakraLink } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import AnimatedPage from "../components/root/animatedPage";
 import { motion, useAnimationControls } from "framer-motion";
@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import GithubLogo from "../public/github.svg";
 import LinkedInLogo from "../public/linkedin.svg";
 import Image from "next/image";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   const mainHeadingControl = useAnimationControls();
@@ -60,78 +61,101 @@ const Home: NextPage = () => {
   }, [orchestrate]);
 
   return (
-    <AnimatedPage>
-      <Flex
-        height="100%"
-        width="100%"
-        direction="column"
-        gap={2}
-        alignItems="center"
-      >
-        <Heading as={motion.h2} marginTop="10rem" animate={mainHeadingControl}>
-          HI! I AM LAM NGUYEN
-        </Heading>
-        <Heading
-          as={motion.h2}
-          initial={{
-            x: 25,
-            opacity: 0,
-          }}
-          animate={firstSubHeadingControl}
-          textShadow="-1px 1px 2px #000,
-				  1px 1px 2px #fff,
-				  1px -1px 0 #000,
-				  -1px -1px 0 #000;"
-          color="white"
-        >
-          HI! I AM LAM NGUYEN
-        </Heading>
-        <Heading
-          as={motion.h2}
-          initial={{}}
-          animate={secondSubHeadingControl}
-          textShadow="-1px 1px 2px #000,
-				  1px 1px 2px #fff,
-				  1px -1px 0 #000,
-				  -1px -1px 0 #000;"
-          color="white"
-        >
-          HI! I AM LAM NGUYEN
-        </Heading>
-        <Text
-          as={motion.p}
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 100,
-            transition: {
-              duration: 3,
-              delay: 2.5,
-            },
-          }}
-        >
-          A fullstack Node.js developer
-        </Text>
+    <>
+      <Head>
+        <title>Nguyen Quang Lam - Home</title>
+      </Head>
+      <AnimatedPage>
         <Flex
-          direction="row"
-          gap={5}
-          as={motion.div}
-          initial={{ y: 20, opacity: 0 }}
-          animate={{
-            y: 0,
-            opacity: 100,
-            transition: {
-              duration: 2,
-              delay: 2.5,
-            },
-          }}
+          height="100%"
+          width="100%"
+          direction="column"
+          gap={2}
+          alignItems="center"
         >
-          <Image src={GithubLogo} alt="Github Link" />
-          <Image src={LinkedInLogo} alt="LinkedIn Link" />
+          <Heading
+            as={motion.h2}
+            marginTop="15rem"
+            animate={mainHeadingControl}
+          >
+            HI! I AM LAM NGUYEN
+          </Heading>
+          <Heading
+            as={motion.h2}
+            initial={{
+              x: 25,
+              opacity: 0,
+            }}
+            animate={firstSubHeadingControl}
+            textShadow="-1px 1px 2px #000,
+				  1px 1px 2px #fff,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;"
+            color="white"
+          >
+            HI! I AM LAM NGUYEN
+          </Heading>
+          <Heading
+            as={motion.h2}
+            initial={{}}
+            animate={secondSubHeadingControl}
+            textShadow="-1px 1px 2px #000,
+				  1px 1px 2px #fff,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;"
+            color="white"
+          >
+            HI! I AM LAM NGUYEN
+          </Heading>
+          <Text
+            as={motion.p}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 100,
+              transition: {
+                duration: 3,
+                delay: 3.5,
+              },
+            }}
+          >
+            A fullstack Node.js developer
+          </Text>
+          <Flex
+            direction="row"
+            gap={5}
+            as={motion.div}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{
+              y: 0,
+              opacity: "100%",
+              transition: {
+                duration: 2,
+                delay: 2.5,
+              },
+            }}
+          >
+            <ChakraLink
+              href="https://github.com/lamnguyencse17"
+              as={motion.a}
+              whileHover={{ scale: 1.2 }}
+              target="_blank"
+            >
+              <Image src={GithubLogo} alt="Github Link" />
+            </ChakraLink>
+            <ChakraLink
+              href="https://www.linkedin.com/in/lamnguyencse17"
+              as={motion.a}
+              whileHover={{ scale: 1.2 }}
+              target="_blank"
+            >
+              <Image src={LinkedInLogo} alt="LinkedIn Link" />
+            </ChakraLink>
+          </Flex>
         </Flex>
-      </Flex>
-    </AnimatedPage>
+      </AnimatedPage>
+    </>
   );
 };
 
