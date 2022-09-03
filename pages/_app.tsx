@@ -12,8 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider theme={theme}>
         <Flex height="100%" width="100%" direction="row" gap={2}>
           <Navbar />
-          <Divider orientation="vertical" />
-          <Box flex={1}>
+          <Box flex={1} borderLeft="1px" borderLeftColor="gray.100">
             <Component {...pageProps} />
           </Box>
         </Flex>

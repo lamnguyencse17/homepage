@@ -7,6 +7,9 @@ import { subNavData } from "../../libs/navData";
 const isNotIndexPage = (path: string, pathname: string) =>
   path === "/" && path !== pathname;
 const isPageMatch = (path: string, pathname: string) => pathname.includes(path);
+const isPageExactMatch = (path: string, pathname: string) =>
+  isPageMatch(path, pathname) && path.length == pathname.length;
+
 const shouldExpand = (path: string, pathname: string) =>
   !isNotIndexPage(path, pathname) && isPageMatch(path, pathname);
 
@@ -14,7 +17,7 @@ const generateColor = (path: string, pathname: string) => {
   if (isNotIndexPage(path, pathname)) {
     return "var(--chakra-colors-pink-black)";
   }
-  if (isPageMatch(path, pathname)) {
+  if (isPageExactMatch(path, pathname)) {
     return "var(--chakra-colors-pink-400)";
   }
   return "var(--chakra-colors-black)";
@@ -38,7 +41,14 @@ const handleExpand = (path: string, pathname: string) => {
         direction="column"
       >
         {subNavData[path as keyof typeof subNavData].map((data) => (
-          <Box key={data.name}>
+          <Box
+            as={motion.div}
+            animate={{
+              color: generateColor(data.path, pathname),
+              transitionDuration: "0.5s",
+            }}
+            key={data.name}
+          >
             <Text fontSize="lg">
               <Link href={data.path}>{data.name}</Link>
             </Text>
