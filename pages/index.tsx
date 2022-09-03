@@ -5,6 +5,7 @@ import { motion, useAnimationControls } from "framer-motion";
 import { useEffect } from "react";
 import GithubLogo from "../public/github.svg";
 import LinkedInLogo from "../public/linkedin.svg";
+import IndexPreview from "../public/indexPreview.jpg";
 import Image from "next/image";
 import Head from "next/head";
 
@@ -64,6 +65,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Nguyen Quang Lam - Home</title>
+        <meta property="og:image" content={IndexPreview.src} />
       </Head>
       <AnimatedPage>
         <Flex
