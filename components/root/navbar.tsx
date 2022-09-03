@@ -93,6 +93,7 @@ const Navbar = () => {
           </Link>
         </Text>
       </Box>
+      {shouldExpand("/about", pathname) && handleExpand("/about", pathname)}
       <Box height="50px">
         <Divider
           orientation="vertical"
