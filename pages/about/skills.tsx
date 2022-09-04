@@ -3,18 +3,18 @@ import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import AnimatedPage from "../../components/root/animatedPage";
-import HtmlIcon from "../../public/html.svg";
-import CssIcon from "../../public/css.svg";
-import JavascriptIcon from "../../public/javascript.svg";
-import TypescriptIcon from "../../public/typescript.svg";
-import GoIcon from "../../public/golang.svg";
-import ReactIcon from "../../public/react.svg";
-import PostgresIcon from "../../public/postgres.svg";
-import MongoIcon from "../../public/mongodb.svg";
-import GitIcon from "../../public/git.svg";
-import DockerIcon from "../../public/docker.svg";
-import JenkinsIcon from "../../public/jenkins.svg";
-import AwsIcon from "../../public/aws.svg";
+import HtmlIcon from "../../public/skills/html.svg";
+import CssIcon from "../../public/skills/css.svg";
+import JavascriptIcon from "../../public/skills/javascript.svg";
+import TypescriptIcon from "../../public/skills/typescript.svg";
+import GoIcon from "../../public/skills/golang.svg";
+import ReactIcon from "../../public/skills/react.svg";
+import PostgresIcon from "../../public/skills/postgres.svg";
+import MongoIcon from "../../public/skills/mongodb.svg";
+import GitIcon from "../../public/skills/git.svg";
+import DockerIcon from "../../public/skills/docker.svg";
+import JenkinsIcon from "../../public/skills/jenkins.svg";
+import AwsIcon from "../../public/skills/aws.svg";
 
 const Skills: NextPage = () => {
   return (
@@ -30,13 +30,13 @@ const Skills: NextPage = () => {
           gap={2}
           alignItems="center"
           padding="5"
-          justifyContent="center"
+          paddingTop="10rem"
         >
           <Heading>Skills</Heading>
           <Text textAlign="justify">
-            Along my learning journey, <br /> I have adopted many many valuable
-            skills in which I believe will help a lot during my life-long
-            career.
+            Throughout my learning journey, <br /> I have adopted many many
+            valuable skills in which I believe will help a lot during my
+            life-long career.
           </Text>
 
           <Flex direction="column" gap={5} alignItems="center">
@@ -75,41 +75,62 @@ const Skills: NextPage = () => {
                 </Box>
               </Tooltip>
             </Flex>
-            <Text fontSize="xl">Databases</Text>
-            <Flex direction="row" gap={5}>
-              <Tooltip label="Postgres" textColor="white">
-                <Box>
-                  <Image src={PostgresIcon} alt="Postgres skill" />
-                </Box>
-              </Tooltip>
-              <Tooltip label="MongoDB" textColor="white">
-                <Box>
-                  <Image src={MongoIcon} alt="MongoDB skill" />
-                </Box>
-              </Tooltip>
-            </Flex>
-            <Text fontSize="xl">Tools</Text>
-            <Flex direction="row" gap={5}>
-              <Tooltip label="Golang" textColor="white">
-                <Box>
-                  <Image src={GitIcon} alt="Git skill" />
-                </Box>
-              </Tooltip>
-              <Tooltip label="Jenkins" textColor="white">
-                <Box>
-                  <Image src={JenkinsIcon} alt="Jenkins skill" />
-                </Box>
-              </Tooltip>
-              <Tooltip label="Docker" textColor="white">
-                <Box>
-                  <Image src={DockerIcon} alt="Docker skill" />
-                </Box>
-              </Tooltip>
-              <Tooltip label="AWS" textColor="white">
-                <Box>
-                  <Image src={AwsIcon} alt="AWS skill" />
-                </Box>
-              </Tooltip>
+            <Flex
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              gap="5rem"
+            >
+              <Flex
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Text fontSize="xl">Databases</Text>
+                <Flex direction="row" gap={5}>
+                  <Tooltip label="Postgres" textColor="white">
+                    <Box>
+                      <Image src={PostgresIcon} alt="Postgres skill" />
+                    </Box>
+                  </Tooltip>
+                  <Tooltip label="MongoDB" textColor="white">
+                    <Box>
+                      <Image src={MongoIcon} alt="MongoDB skill" />
+                    </Box>
+                  </Tooltip>
+                </Flex>
+              </Flex>
+              <Flex
+                direction="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Text fontSize="xl" textAlign="center">
+                  Tools
+                </Text>
+                <Flex direction="row" gap={5}>
+                  <Tooltip label="Golang" textColor="white">
+                    <Box>
+                      <Image src={GitIcon} alt="Git skill" />
+                    </Box>
+                  </Tooltip>
+                  <Tooltip label="Jenkins" textColor="white">
+                    <Box>
+                      <Image src={JenkinsIcon} alt="Jenkins skill" />
+                    </Box>
+                  </Tooltip>
+                  <Tooltip label="Docker" textColor="white">
+                    <Box>
+                      <Image src={DockerIcon} alt="Docker skill" />
+                    </Box>
+                  </Tooltip>
+                  <Tooltip label="AWS" textColor="white">
+                    <Box>
+                      <Image src={AwsIcon} alt="AWS skill" />
+                    </Box>
+                  </Tooltip>
+                </Flex>
+              </Flex>
             </Flex>
           </Flex>
         </Flex>
