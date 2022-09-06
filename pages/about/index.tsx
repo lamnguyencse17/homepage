@@ -69,6 +69,7 @@ const About: NextPage = () => {
                             width: "fit-content",
                             margin: "auto",
                           }}
+                          alt="Link to experience page"
                         />
                       </Box>
 
@@ -105,6 +106,7 @@ const About: NextPage = () => {
                             width: "fit-content",
                             margin: "auto",
                           }}
+                          alt="Link to skill page"
                         />
                       </Box>
 

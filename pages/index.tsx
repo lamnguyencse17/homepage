@@ -22,7 +22,7 @@ const Home: NextPage = () => {
     secondSubHeadingControl.set({ x: 50, opacity: 0, y: -60, zIndex: -2 });
   };
 
-  const orchestrate = async () => {
+  useEffect(() => {
     setupControls();
     mainHeadingControl.start({
       opacity: 100,
@@ -55,11 +55,7 @@ const Home: NextPage = () => {
           display: "none",
         });
       });
-  };
-
-  useEffect(() => {
-    orchestrate();
-  }, [orchestrate]);
+  }, []);
 
   return (
     <>
