@@ -30,9 +30,25 @@ import {
   GithubAsset,
 } from "../../libs/github";
 import GithubLogo from "../../public/github.svg";
+import HomeImage from "../../public/works/dvr/home.jpg";
+import DependenciesImage from "../../public/works/dvr/dependencies.jpg";
+import FunctionsImage from "../../public/works/dvr/functions.jpg";
 import { motion } from "framer-motion";
+import Carousel from "../../components/works/carousel";
 
 const repo = "youtube-dvr";
+const images = [
+  { src: HomeImage, title: "Homepage of Youtube DVR" },
+  {
+    src: DependenciesImage,
+    title: "Youtube DVR can self check for dependencies and updates",
+  },
+  {
+    src: FunctionsImage,
+    title:
+      "Choose video quality, see stats of recording and watch while downloading!",
+  },
+];
 
 enum IndexDateMapping {
   "Mon",
@@ -147,7 +163,21 @@ const Dvr: NextPage<DvrProps> = ({
               allowing you to record youtube livestream or just youtube video
             </Text>
           </Box>
-          <Box width="100%">
+          <Flex
+            direction="column"
+            height="fit-content"
+            width="100%"
+            marginTop="3rem"
+            gap="2"
+          >
+            <Text fontSize="xl" fontWeight="bold" textAlign="justify">
+              Gallery
+            </Text>
+            <Box paddingX="5">
+              <Carousel images={images} />
+            </Box>
+          </Flex>
+          <Box width="100%" marginTop="3rem">
             <Text fontSize="xl" fontWeight="bold" textAlign="justify">
               Latest release
             </Text>

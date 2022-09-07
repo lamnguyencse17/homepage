@@ -1,5 +1,6 @@
 import { Flex, Grid, Heading, Link as ChakraLink } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import Head from "next/head";
 import AnimatedPage from "../../components/root/animatedPage";
 import WorkCard from "../../components/works/card";
 import DvrImage from "../../public/works/dvr/home.jpg";
@@ -16,24 +17,29 @@ const works = [
 
 const Works: NextPage = () => {
   return (
-    <AnimatedPage>
-      <Flex
-        height="100%"
-        width="100%"
-        direction="column"
-        gap={2}
-        overflowY="auto"
-        marginTop="10rem"
-        alignItems="center"
-      >
-        <Heading>Works</Heading>
-        <Grid templateColumns="repeat(2, 1fr)" gap="10rem" paddingTop="10">
-          {works.map((work, index) => (
-            <WorkCard {...work} key={index} />
-          ))}
-        </Grid>
-      </Flex>
-    </AnimatedPage>
+    <>
+      <Head>
+        <title>Nguyen Quang Lam - Works</title>
+      </Head>
+      <AnimatedPage>
+        <Flex
+          height="100%"
+          width="100%"
+          direction="column"
+          gap={2}
+          overflowY="auto"
+          marginTop="10rem"
+          alignItems="center"
+        >
+          <Heading>Works</Heading>
+          <Grid templateColumns="repeat(2, 1fr)" gap="10rem" paddingTop="10">
+            {works.map((work, index) => (
+              <WorkCard {...work} key={index} />
+            ))}
+          </Grid>
+        </Flex>
+      </AnimatedPage>
+    </>
   );
 };
 
