@@ -50,7 +50,9 @@ const handleExpand = (path: string, pathname: string) => {
             key={data.name}
           >
             <Text fontSize="lg">
-              <Link href={data.path}>{data.name}</Link>
+              <Link href={data.path} passHref>
+                <ChakraLink>{data.name}</ChakraLink>
+              </Link>
             </Text>
           </Box>
         ))}
