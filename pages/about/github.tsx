@@ -76,7 +76,12 @@ const GithubPage: NextPage<GithubPageProps> = ({
             <GridItem colSpan={[4, 4, 1]}>
               <Flex direction={["row", "row", "column"]}>
                 <Box rounded="full" overflow="hidden">
-                  <Image src={avatar} width="400" height="400" />
+                  <Image
+                    src={avatar}
+                    width="400"
+                    height="400"
+                    alt="Lam Nguyen Github profile picture"
+                  />
                 </Box>
                 <Box>
                   <Text fontWeight="bold" fontSize="xl" textAlign="center">
