@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionPanel,
   Box,
-  Divider,
   Flex,
   Heading,
   Link,
@@ -14,7 +13,6 @@ import {
   Tbody,
   Td,
   Text,
-  Thead,
   Tr,
 } from "@chakra-ui/react";
 import type { GetStaticProps, NextPage } from "next";
@@ -246,7 +244,12 @@ const Dvr: NextPage<DvrProps> = ({
             width="100%"
             justifyContent="center"
           >
-            <Box>
+            <Box
+              as={motion.div}
+              whileInView={{ opacity: 1, transitionDuration: "1s", x: 0 }}
+              initial={{ opacity: 0, x: -10 }}
+              viewport={{ once: true }}
+            >
               <VictoryPie
                 data={languageChart}
                 colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
@@ -261,7 +264,12 @@ const Dvr: NextPage<DvrProps> = ({
               />
               <Text textAlign="center">Languages used break down by lines</Text>
             </Box>
-            <Box>
+            <Box
+              as={motion.div}
+              whileInView={{ opacity: 1, transitionDuration: "1s", x: 0 }}
+              initial={{ opacity: 0, x: 10 }}
+              viewport={{ once: true }}
+            >
               <VictoryBar
                 data={commitDate}
                 labels={({ datum }) => datum.label}

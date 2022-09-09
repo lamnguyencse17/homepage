@@ -49,9 +49,11 @@ const handleExpand = (path: string, pathname: string) => {
             }}
             key={data.name}
           >
-            <Text fontSize="lg">
+            <Text fontSize="md" fontStyle="italic">
               <Link href={data.path} passHref>
-                <ChakraLink>{data.name}</ChakraLink>
+                <ChakraLink aria-label={`Link to my ${data.name} page`}>
+                  {data.name}
+                </ChakraLink>
               </Link>
             </Text>
           </Box>

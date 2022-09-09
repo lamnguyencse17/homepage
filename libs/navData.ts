@@ -9,5 +9,6 @@ export const subNavData = {
       path: "/about/experience",
     },
     { name: "Skills", path: "/about/skills" },
+    { name: "Github", path: "/about/github" },
   ],
 };

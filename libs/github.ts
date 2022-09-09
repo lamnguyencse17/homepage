@@ -76,3 +76,18 @@ export const getLatestRelease = async (repo: string) => {
     repo,
   });
 };
+
+export const getGithubProfile = async () => {
+  const octokit = getOctokit();
+  return octokit.rest.users.getByUsername;
+};
+
+export const getFollowers = async () => {
+  const octokit = getOctokit();
+  return octokit.rest.users.listFollowersForAuthenticatedUser();
+};
+
+export const getFollowings = async () => {
+  const octokit = getOctokit();
+  return octokit.rest.users.listFollowedByAuthenticatedUser();
+};

@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Text, Tooltip } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -39,7 +40,14 @@ const Skills: NextPage = () => {
             life-long career.
           </Text>
 
-          <Flex direction="column" gap={5} alignItems="center">
+          <Flex
+            as={motion.div}
+            direction="column"
+            gap={5}
+            alignItems="center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0, transitionDuration: "1s" }}
+          >
             <Text fontSize="xl" marginTop="5rem">
               Languages
             </Text>
