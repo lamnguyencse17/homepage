@@ -1,5 +1,5 @@
 import { Flex, IconButton, Stack, Text, Box } from "@chakra-ui/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { wrap } from "popmotion";
 import { useState } from "react";
@@ -46,7 +46,7 @@ const Carousel = ({ images }: CarouselProps) => {
             cursor="pointer"
             marginX="2rem"
           >
-            <motion.div
+            <m.div
               key={page}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -64,8 +64,9 @@ const Carousel = ({ images }: CarouselProps) => {
                 onClick={() => {
                   setImage(images[imageIndex].src);
                 }}
+                alt={images[imageIndex].title}
               />
-            </motion.div>
+            </m.div>
           </Box>
         </AnimatePresence>
         <IconButton

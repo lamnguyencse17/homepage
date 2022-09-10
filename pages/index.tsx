@@ -1,7 +1,7 @@
 import { Flex, Heading, Text, Link as ChakraLink } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import AnimatedPage from "../components/root/animatedPage";
-import { motion, useAnimationControls } from "framer-motion";
+import { m, useAnimationControls } from "framer-motion";
 import { useEffect } from "react";
 import GithubLogo from "../public/github.svg";
 import LinkedInLogo from "../public/linkedin.svg";
@@ -71,15 +71,11 @@ const Home: NextPage = () => {
           gap={2}
           alignItems="center"
         >
-          <Heading
-            as={motion.h2}
-            marginTop="15rem"
-            animate={mainHeadingControl}
-          >
+          <Heading as={m.h2} marginTop="15rem" animate={mainHeadingControl}>
             HI! I AM LAM NGUYEN
           </Heading>
           <Heading
-            as={motion.h2}
+            as={m.h2}
             initial={{
               x: 25,
               opacity: 0,
@@ -94,7 +90,7 @@ const Home: NextPage = () => {
             HI! I AM LAM NGUYEN
           </Heading>
           <Heading
-            as={motion.h2}
+            as={m.h2}
             initial={{}}
             animate={secondSubHeadingControl}
             textShadow="-1px 1px 2px #000,
@@ -106,7 +102,7 @@ const Home: NextPage = () => {
             HI! I AM LAM NGUYEN
           </Heading>
           <Text
-            as={motion.p}
+            as={m.p}
             initial={{
               opacity: 0,
             }}
@@ -123,7 +119,7 @@ const Home: NextPage = () => {
           <Flex
             direction="row"
             gap={5}
-            as={motion.div}
+            as={m.div}
             initial={{ y: 20, opacity: 0 }}
             animate={{
               y: 0,
@@ -136,7 +132,7 @@ const Home: NextPage = () => {
           >
             <ChakraLink
               href="https://github.com/lamnguyencse17"
-              as={motion.a}
+              as={m.a}
               whileHover={{ scale: 1.2 }}
               target="_blank"
             >
@@ -144,7 +140,7 @@ const Home: NextPage = () => {
             </ChakraLink>
             <ChakraLink
               href="https://www.linkedin.com/in/lamnguyencse17"
-              as={motion.a}
+              as={m.a}
               whileHover={{ scale: 1.2 }}
               target="_blank"
             >

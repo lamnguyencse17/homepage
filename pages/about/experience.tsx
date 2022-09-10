@@ -8,7 +8,7 @@ import {
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -71,7 +71,7 @@ const Experience: NextPage = () => {
             <Flex
               direction="row"
               width="100%"
-              as={motion.div}
+              as={m.div}
               whileInView={{ opacity: 1, x: 0, transitionDuration: "1s" }}
               initial={{ opacity: 0, x: -10 }}
               viewport={{ once: true }}
@@ -147,7 +147,7 @@ const Experience: NextPage = () => {
               direction="row"
               width="100%"
               marginTop="10rem"
-              as={motion.div}
+              as={m.div}
               whileInView={{ opacity: 1, transitionDuration: "1s", x: 0 }}
               initial={{ opacity: 0, x: -10 }}
               viewport={{ once: true }}

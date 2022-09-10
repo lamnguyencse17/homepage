@@ -14,7 +14,10 @@ const getOctokit = () => {
 
 export const getAllRepositories = async () => {
   const octokit = getOctokit();
-  return octokit.rest.repos.listPublic();
+  return octokit.rest.repos.listForUser({
+    username: owner,
+    per_page: 100,
+  });
 };
 
 export const getRepoInfo = async (repo: string) => {

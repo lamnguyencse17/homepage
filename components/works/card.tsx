@@ -1,7 +1,5 @@
 import {
   Box,
-  Center,
-  useColorModeValue,
   Heading,
   Text,
   Stack,
@@ -10,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 type WorkCardProps = {
   url: string;
@@ -22,7 +20,7 @@ type WorkCardProps = {
 const WorkCard = ({ url, image, title, description }: WorkCardProps) => {
   return (
     <LinkBox
-      as={motion.div}
+      as={m.div}
       role={"group"}
       p={6}
       maxW={"330px"}
@@ -43,7 +41,7 @@ const WorkCard = ({ url, image, title, description }: WorkCardProps) => {
         borderColor="gray.200"
         overflow="hidden"
       >
-        <Image src={image} />
+        <Image src={image} alt={`${title} image`} />
       </Box>
       <Stack pt={5} align={"center"}>
         <Link href={url} passHref>

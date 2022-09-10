@@ -1,10 +1,10 @@
 import { Box } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const AnimatedPage = ({ children }: { children: JSX.Element }) => {
   return (
     <Box
-      as={motion.div}
+      as={m.div}
       key="works"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

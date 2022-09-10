@@ -31,7 +31,7 @@ import GithubLogo from "../../public/github.svg";
 import HomeImage from "../../public/works/dvr/home.jpg";
 import DependenciesImage from "../../public/works/dvr/dependencies.jpg";
 import FunctionsImage from "../../public/works/dvr/functions.jpg";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Carousel from "../../components/works/carousel";
 
 const repo = "youtube-dvr";
@@ -148,7 +148,7 @@ const Dvr: NextPage<DvrProps> = ({
         >
           <Heading>Youtube DVR</Heading>
           <Link
-            as={motion.a}
+            as={m.a}
             href="https://github.com/lamnguyencse17/youtube-dvr"
             target="_blank"
             whileHover={{ scale: 1.2 }}
@@ -245,7 +245,7 @@ const Dvr: NextPage<DvrProps> = ({
             justifyContent="center"
           >
             <Box
-              as={motion.div}
+              as={m.div}
               whileInView={{ opacity: 1, transitionDuration: "1s", x: 0 }}
               initial={{ opacity: 0, x: -10 }}
               viewport={{ once: true }}
@@ -265,7 +265,7 @@ const Dvr: NextPage<DvrProps> = ({
               <Text textAlign="center">Languages used break down by lines</Text>
             </Box>
             <Box
-              as={motion.div}
+              as={m.div}
               whileInView={{ opacity: 1, transitionDuration: "1s", x: 0 }}
               initial={{ opacity: 0, x: 10 }}
               viewport={{ once: true }}

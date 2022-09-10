@@ -23,7 +23,7 @@ const ImageModal = ({ isOpen, onClose, image }: ImageModalProps) => {
           <ModalCloseButton />
         </ModalHeader>
         <ModalBody paddingTop="5">
-          {image && <Image src={image} layout="responsive" />}
+          {image && <Image src={image} layout="responsive" alt="" />}
         </ModalBody>
       </ModalContent>
     </Modal>
