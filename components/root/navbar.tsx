@@ -128,6 +128,25 @@ const Navbar = () => {
         </Text>
       </Box>
       {shouldExpand("/works", pathname) && handleExpand("/works", pathname)}
+      <Box height="50px">
+        <Divider
+          orientation="vertical"
+          borderWidth="1.5px"
+          borderColor="grey.500"
+        />
+      </Box>
+      <Box
+        as={motion.div}
+        animate={{
+          color: generateColor("/works", pathname),
+        }}
+      >
+        <Text fontSize="lg">
+          <Link href="/contact" passHref>
+            <ChakraLink>CONTACT</ChakraLink>
+          </Link>
+        </Text>
+      </Box>
     </Flex>
   );
 };

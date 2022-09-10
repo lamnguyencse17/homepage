@@ -1,13 +1,9 @@
 import {
   Box,
-  Divider,
   Flex,
   Grid,
   GridItem,
   Link,
-  LinkBox,
-  LinkOverlay,
-  Spacer,
   Tab,
   TabList,
   TabPanel,
@@ -26,30 +22,37 @@ import {
   getFollowings,
   getUserInfo,
 } from "../../libs/github";
+import dayjs from "dayjs";
+import GithubOverview from "../../components/about/github/overview";
+import GithubRepositories from "../../components/about/github/repositories";
+import GithubProfile from "../../components/about/github/profile";
 
-type SanitizedRepo = {
+export type SanitizedRepo = {
   name: string;
   description: string | null;
   language: string | null;
   forks: number | null;
   stars: number | null;
   url: string;
+  updatedAt: string | null;
 };
 
-const pinnedRepos = [
-  "youtube-dvr",
-  "foodgether-v2",
-  "holovn",
-  "blogs",
-  "Sender",
-  "homepage",
-];
-
-const languageColor = {
-  TypeScript: "pink.400",
-  JavaScript: "yellow.400",
-  Go: "blue.400",
-};
+const santizeRepos = (
+  repos: Awaited<ReturnType<typeof getAllRepositories>>["data"]
+) =>
+  repos
+    .map((repo) => ({
+      name: repo.name,
+      description: repo.description || null,
+      language: repo.language || null,
+      forks: repo.forks || null,
+      stars: repo.stargazers_count || null,
+      url: repo.html_url,
+      updatedAt: repo.pushed_at || null,
+    }))
+    .sort((repoA, repoB) =>
+      dayjs(repoB.updatedAt).diff(dayjs(repoA.updatedAt))
+    );
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const [
@@ -63,17 +66,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     getFollowings(),
     getAllRepositories(),
   ]);
-  const sanitizedRepos = {} as { [key: string]: SanitizedRepo };
-  repos.forEach((repo) => {
-    sanitizedRepos[repo.name] = {
-      name: repo.name,
-      description: repo.description || null,
-      language: repo.language || null,
-      forks: repo.forks || null,
-      stars: repo.stargazers_count || null,
-      url: repo.html_url,
-    };
-  });
+  const sanitizedRepos = santizeRepos(repos);
+
   return {
     props: {
       user: {
@@ -111,12 +105,12 @@ type GithubPageProps = {
   };
   repos: {
     count: number;
-    value: { [key: string]: SanitizedRepo };
+    value: SanitizedRepo[];
   };
 };
 
 const GithubPage: NextPage<GithubPageProps> = ({
-  user: { avatar, name, bio, username },
+  user,
   followersCount,
   followingCount,
   repos: { count: repoCount, value: repos },
@@ -137,44 +131,11 @@ const GithubPage: NextPage<GithubPageProps> = ({
         >
           <Grid templateColumns="repeat(5, 1fr)" gap={5}>
             <GridItem colSpan={[5, 5, 1]}>
-              <Flex direction={["row", "row", "column"]}>
-                <Box rounded="full" overflow="hidden">
-                  <Image
-                    src={avatar}
-                    width="400"
-                    height="400"
-                    alt="Lam Nguyen Github profile picture"
-                  />
-                </Box>
-                <Box>
-                  <Text fontWeight="bold" fontSize="xl" textAlign="center">
-                    {name}
-                  </Text>
-                  <Text fontSize="md" textAlign="center" color="gray.500">
-                    {username}
-                  </Text>
-                </Box>
-              </Flex>
-              <Text fontSize="md" textAlign="center" marginTop="1rem">
-                {bio}
-              </Text>
-              <Flex
-                direction="row"
-                gap={2}
-                justifyContent="center"
-                marginTop="2rem"
-              >
-                <Text fontSize="md">
-                  <Link href={`https://github.com/${username}?tab=followers`}>
-                    {followersCount} followers
-                  </Link>
-                </Text>
-                <Text fontSize="md">
-                  <Link href={`https://github.com/${username}?tab=following`}>
-                    {followingCount} following
-                  </Link>
-                </Text>
-              </Flex>
+              <GithubProfile
+                user={user}
+                followersCount={followersCount}
+                followingCount={followingCount}
+              />
             </GridItem>
             <GridItem colSpan={[5, 5, 4]}>
               <Tabs variant="soft-rounded" colorScheme="pink">
@@ -188,80 +149,10 @@ const GithubPage: NextPage<GithubPageProps> = ({
                 </TabList>
                 <TabPanels marginTop="2rem">
                   <TabPanel>
-                    <Grid templateColumns="repeat(2, 1fr)" gap={3}>
-                      {pinnedRepos.map((repoName) => {
-                        const repo = repos[repoName];
-                        if (!repo) {
-                          return <></>;
-                        }
-                        return (
-                          <GridItem colSpan={[2, 1, 1]} key={repo.name}>
-                            <LinkBox
-                              role={"group"}
-                              p={4}
-                              width="100%"
-                              height="160px"
-                              rounded={"lg"}
-                              pos={"relative"}
-                              zIndex={10}
-                              border="1px"
-                              borderColor="gray.200"
-                            >
-                              <Flex direction="column" height="100%" gap={2}>
-                                <LinkOverlay href={repo.url}>
-                                  <Text fontSize="lg">{repo.name}</Text>
-                                </LinkOverlay>
-                                {repo.description && (
-                                  <Text fontSize="sm" noOfLines={2}>
-                                    {repo.description}
-                                  </Text>
-                                )}
-                                <Spacer />
-                                {repo.language && (
-                                  <Tag
-                                    backgroundColor={
-                                      languageColor[
-                                        repo.language as keyof typeof languageColor
-                                      ]
-                                    }
-                                    textAlign="center"
-                                  >
-                                    {repo.language}
-                                  </Tag>
-                                )}
-                              </Flex>
-                            </LinkBox>
-                          </GridItem>
-                        );
-                      })}
-                    </Grid>
+                    <GithubOverview repos={repos} />
                   </TabPanel>
                   <TabPanel overflowY="auto" maxHeight="600px">
-                    {Object.keys(repos).map((repoKey) => {
-                      const repo = repos[repoKey];
-                      if (!repo) {
-                        return <></>;
-                      }
-                      return (
-                        <>
-                          <Flex direction="column" gap={3}>
-                            <Link href={repo.url}>
-                              <Text
-                                fontWeight="bold"
-                                fontSize="xl"
-                                color="pink.400"
-                              >
-                                {repo.name}
-                              </Text>
-                            </Link>
-                            {repo.description && (
-                              <Text fontSize="sm">{repo.description}</Text>
-                            )}
-                          </Flex>
-                          <Divider marginY="1rem" />
-                        </>
-                      );
-                    })}
+                    <GithubRepositories repos={repos} />
                   </TabPanel>
                 </TabPanels>
               </Tabs>
