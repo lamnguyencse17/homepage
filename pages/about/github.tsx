@@ -1,11 +1,19 @@
 import {
   Box,
+  Divider,
   Flex,
   Grid,
   GridItem,
   Link,
   LinkBox,
   LinkOverlay,
+  Spacer,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Tag,
   Text,
 } from "@chakra-ui/react";
 import { GetStaticProps, NextPage } from "next";
@@ -36,6 +44,12 @@ const pinnedRepos = [
   "Sender",
   "homepage",
 ];
+
+const languageColor = {
+  TypeScript: "pink.400",
+  JavaScript: "yellow.400",
+  Go: "blue.400",
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const [
@@ -121,8 +135,8 @@ const GithubPage: NextPage<GithubPageProps> = ({
           alignItems="center"
           padding="5"
         >
-          <Grid templateColumns="repeat(4, 1fr)" gap={5}>
-            <GridItem colSpan={[4, 4, 1]}>
+          <Grid templateColumns="repeat(5, 1fr)" gap={5}>
+            <GridItem colSpan={[5, 5, 1]}>
               <Flex direction={["row", "row", "column"]}>
                 <Box rounded="full" overflow="hidden">
                   <Image
@@ -162,40 +176,95 @@ const GithubPage: NextPage<GithubPageProps> = ({
                 </Text>
               </Flex>
             </GridItem>
-            <GridItem colSpan={[4, 4, 3]}>
-              <Grid templateColumns="repeat(2, 1fr)" gap={3}>
-                {pinnedRepos.map((repoName) => {
-                  const repo = repos[repoName];
-                  if (!repo) {
-                    return <></>;
-                  }
-                  return (
-                    <GridItem colSpan={[2, 1, 1]} key={repo.name}>
-                      <LinkBox
-                        role={"group"}
-                        p={6}
-                        width="100%"
-                        height="150px"
-                        rounded={"lg"}
-                        pos={"relative"}
-                        zIndex={10}
-                        border="1px"
-                        borderColor="gray.200"
-                      >
-                        <LinkOverlay href={repo.url}>
-                          <Text fontSize="lg">{repo.name}</Text>
-                          <Text fontSize="md">
-                            {repo.description ? repo.description : " "}
-                          </Text>
-                          <Text fontSize="md">
-                            {repo.language ? repo.language : " "}
-                          </Text>
-                        </LinkOverlay>
-                      </LinkBox>
-                    </GridItem>
-                  );
-                })}
-              </Grid>
+            <GridItem colSpan={[5, 5, 4]}>
+              <Tabs variant="soft-rounded" colorScheme="pink">
+                <TabList>
+                  <Tab>Overview</Tab>
+                  <Tab>
+                    <Flex direction="row" gap={2}>
+                      Repositories <Tag>{repoCount}</Tag>
+                    </Flex>
+                  </Tab>
+                </TabList>
+                <TabPanels marginTop="2rem">
+                  <TabPanel>
+                    <Grid templateColumns="repeat(2, 1fr)" gap={3}>
+                      {pinnedRepos.map((repoName) => {
+                        const repo = repos[repoName];
+                        if (!repo) {
+                          return <></>;
+                        }
+                        return (
+                          <GridItem colSpan={[2, 1, 1]} key={repo.name}>
+                            <LinkBox
+                              role={"group"}
+                              p={4}
+                              width="100%"
+                              height="160px"
+                              rounded={"lg"}
+                              pos={"relative"}
+                              zIndex={10}
+                              border="1px"
+                              borderColor="gray.200"
+                            >
+                              <Flex direction="column" height="100%" gap={2}>
+                                <LinkOverlay href={repo.url}>
+                                  <Text fontSize="lg">{repo.name}</Text>
+                                </LinkOverlay>
+                                {repo.description && (
+                                  <Text fontSize="sm" noOfLines={2}>
+                                    {repo.description}
+                                  </Text>
+                                )}
+                                <Spacer />
+                                {repo.language && (
+                                  <Tag
+                                    backgroundColor={
+                                      languageColor[
+                                        repo.language as keyof typeof languageColor
+                                      ]
+                                    }
+                                    textAlign="center"
+                                  >
+                                    {repo.language}
+                                  </Tag>
+                                )}
+                              </Flex>
+                            </LinkBox>
+                          </GridItem>
+                        );
+                      })}
+                    </Grid>
+                  </TabPanel>
+                  <TabPanel overflowY="auto" maxHeight="600px">
+                    {Object.keys(repos).map((repoKey) => {
+                      const repo = repos[repoKey];
+                      if (!repo) {
+                        return <></>;
+                      }
+                      return (
+                        <>
+                          <Flex direction="column" gap={3}>
+                            <Link href={repo.url}>
+                              <Text
+                                fontWeight="bold"
+                                fontSize="xl"
+                                color="pink.400"
+                              >
+                                {repo.name}
+                              </Text>
+                            </Link>
+                            {repo.description && (
+                              <Text fontSize="sm">{repo.description}</Text>
+                            )}
+                          </Flex>
+                          <Divider marginY="1rem" />
+                        </>
+                      );
+                    })}
+                  </TabPanel>
+                </TabPanels>
+              </Tabs>
             </GridItem>
           </Grid>
         </Flex>
