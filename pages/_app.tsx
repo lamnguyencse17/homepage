@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import "@fontsource/space-mono";
-import { Box, ChakraProvider, Divider, Flex } from "@chakra-ui/react";
+import { Box, ChakraProvider, Flex } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import Navbar from "../components/root/navbar";

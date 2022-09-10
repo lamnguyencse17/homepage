@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text, Tooltip } from "@chakra-ui/react";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -41,7 +41,7 @@ const Skills: NextPage = () => {
           </Text>
 
           <Flex
-            as={m.div}
+            as={motion.div}
             direction="column"
             gap={5}
             alignItems="center"

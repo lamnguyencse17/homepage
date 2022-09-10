@@ -14,7 +14,7 @@ import Link from "next/link";
 import AnimatedPage from "../../components/root/animatedPage";
 import SkillsIcon from "../../public/skills.svg";
 import ExperienceIcon from "../../public/experience.svg";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import Head from "next/head";
 
 const About: NextPage = () => {
@@ -53,7 +53,7 @@ const About: NextPage = () => {
               height="200px"
               display="flex"
               flexDirection="column"
-              as={m.div}
+              as={motion.div}
               whileHover={{ scale: 1.2 }}
               colStart={2}
             >
@@ -90,7 +90,7 @@ const About: NextPage = () => {
               height="200px"
               display="flex"
               flexDirection="column"
-              as={m.div}
+              as={motion.div}
               whileHover={{ scale: 1.2 }}
               colStart={5}
             >

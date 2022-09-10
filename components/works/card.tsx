@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 
 type WorkCardProps = {
   url: string;
@@ -20,7 +20,7 @@ type WorkCardProps = {
 const WorkCard = ({ url, image, title, description }: WorkCardProps) => {
   return (
     <LinkBox
-      as={m.div}
+      as={motion.div}
       role={"group"}
       p={6}
       maxW={"330px"}
