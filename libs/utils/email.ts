@@ -25,13 +25,13 @@ const transporter = nodemailer.createTransport({
   SES: { ses, aws },
 });
 
-export const sendEmail = (name: string, from: string, content: string) =>
+export const sendEmail = (name: string, sender: string, content: string) =>
   transporter.sendMail(
     {
-      from,
+      from: "contact@lamnguyencse17.dev",
       to: process.env.CONTACT_EMAIL,
       subject: `Homepage contact message from ${name}`,
-      text: content,
+      text: content + "\n" + `sent from ${sender} by ${name}`,
     },
     (err, info) => {
       if (err) {
