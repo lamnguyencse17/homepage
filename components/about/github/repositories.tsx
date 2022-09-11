@@ -1,4 +1,5 @@
 import { Box, Divider, Flex, Link, Tag, Text } from "@chakra-ui/react";
+import { Virtuoso } from "react-virtuoso";
 import dayjs from "dayjs";
 import { languageColor } from "../../../libs/utils/color";
 import { SanitizedRepo } from "../../../pages/about/github";
@@ -23,41 +24,39 @@ type GithubRepositoriesProps = {
 
 const GithubRepositories = ({ repos }: GithubRepositoriesProps) => {
   return (
-    <>
-      {repos.map((repo) => {
-        return (
-          <Box key={repo.name}>
-            <Flex direction="column" gap={3}>
-              <Link href={repo.url}>
-                <Text fontWeight="bold" fontSize="xl" color="pink.400">
-                  {repo.name}
-                </Text>
-              </Link>
-              {repo.description && (
-                <Text fontSize="sm">{repo.description}</Text>
+    <Virtuoso
+      data={repos}
+      style={{ height: 600 }}
+      itemContent={(index, repo) => (
+        <Box key={repo.name}>
+          <Flex direction="column" gap={3}>
+            <Link href={repo.url}>
+              <Text fontWeight="bold" fontSize="xl" color="pink.400">
+                {repo.name}
+              </Text>
+            </Link>
+            {repo.description && <Text fontSize="sm">{repo.description}</Text>}
+            <Flex direction="row" gap={3} alignItems="center">
+              {repo.language && (
+                <Tag
+                  backgroundColor={
+                    languageColor[repo.language as keyof typeof languageColor]
+                  }
+                  textAlign="center"
+                  fontSize="xs"
+                >
+                  {repo.language}
+                </Tag>
               )}
-              <Flex direction="row" gap={5} alignItems="center">
-                {repo.language && (
-                  <Tag
-                    backgroundColor={
-                      languageColor[repo.language as keyof typeof languageColor]
-                    }
-                    textAlign="center"
-                    fontSize="xs"
-                  >
-                    {repo.language}
-                  </Tag>
-                )}
-                {repo.updatedAt && (
-                  <Text fontSize="xs">{renderUpdatedDate(repo.updatedAt)}</Text>
-                )}
-              </Flex>
+              {repo.updatedAt && (
+                <Text fontSize="xs">{renderUpdatedDate(repo.updatedAt)}</Text>
+              )}
             </Flex>
-            <Divider marginY="1rem" />
-          </Box>
-        );
-      })}
-    </>
+          </Flex>
+          <Divider marginY="1rem" />
+        </Box>
+      )}
+    ></Virtuoso>
   );
 };
 

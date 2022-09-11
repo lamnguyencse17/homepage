@@ -151,7 +151,7 @@ const GithubPage: NextPage<GithubPageProps> = ({
                   <TabPanel>
                     <GithubOverview repos={repos} />
                   </TabPanel>
-                  <TabPanel overflowY="auto" maxHeight="600px">
+                  <TabPanel>
                     <GithubRepositories repos={repos} />
                   </TabPanel>
                 </TabPanels>
