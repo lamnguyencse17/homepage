@@ -35,7 +35,7 @@ export const sendEmail = (name: string, from: string, content: string) =>
     },
     (err, info) => {
       if (err) {
-        console.log(err);
+        throw err;
       }
     }
   );

@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const { withSentryConfig } = require('@sentry/nextjs');
 
 const shouldAnalyzeBundles = process.env.ANALYZE === 'true';
 let nextConfig = {
@@ -12,6 +13,9 @@ let nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  sentry: {
+    hideSourceMaps: true,
   },
 }
 
@@ -27,4 +31,8 @@ if (shouldAnalyzeBundles) {
   nextConfig = withNextBundleAnalyzer(nextConfig);
 }
 
-module.exports = nextConfig
+const sentryWebpackPluginOptions = {
+  silent: true, // Suppresses all logs
+};
+
+module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);

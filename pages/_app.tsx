@@ -6,9 +6,11 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "../components/root/navbar";
 import theme from "../libs/theme";
 import useAnalytics from "../libs/hooks/useAnalytics";
+import useSentry from "../libs/hooks/useSentry";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useAnalytics();
+  useSentry();
   return (
     <AnimatePresence exitBeforeEnter>
       <ChakraProvider theme={theme}>

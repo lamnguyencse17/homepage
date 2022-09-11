@@ -2,11 +2,16 @@ import { NextApiHandler } from "next";
 import { verifyCaptcha } from "../../libs/utils/captcha";
 import { sendEmail } from "../../libs/utils/email";
 import { ContactFormSchema } from "../../libs/validations/contact";
+import { withSentry, captureException, setUser } from "@sentry/nextjs";
 
 const handler: NextApiHandler = async (req, res) => {
   try {
     if (req.method === "POST") {
       const contactInput = ContactFormSchema.parse(req.body);
+      setUser({
+        email: contactInput.email,
+        username: contactInput.name,
+      });
       const isValidCaptcha = await verifyCaptcha(contactInput.token);
       if (!isValidCaptcha) {
         return res
@@ -20,8 +25,9 @@ const handler: NextApiHandler = async (req, res) => {
     }
   } catch (err) {
     console.log(err);
+    captureException(err);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
 
-export default handler;
+export default withSentry(handler);
