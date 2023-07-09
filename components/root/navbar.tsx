@@ -51,7 +51,10 @@ const handleExpand = (path: string, pathname: string) => {
           >
             <Text fontSize="md" fontStyle="italic">
               <Link href={data.path} passHref>
-                <ChakraLink aria-label={`Link to my ${data.name} page`}>
+                <ChakraLink
+                  as="span"
+                  aria-label={`Link to my ${data.name} page`}
+                >
                   {data.name}
                 </ChakraLink>
               </Link>
@@ -84,7 +87,7 @@ const Navbar = () => {
       >
         <Text fontSize="lg">
           <Link href="/" passHref>
-            <ChakraLink>HOME</ChakraLink>
+            <ChakraLink as="span">HOME</ChakraLink>
           </Link>
         </Text>
       </Box>
@@ -103,7 +106,7 @@ const Navbar = () => {
       >
         <Text fontSize="lg">
           <Link href="/about" passHref>
-            <ChakraLink>ABOUT</ChakraLink>
+            <ChakraLink as="span">ABOUT</ChakraLink>
           </Link>
         </Text>
       </Box>
@@ -123,7 +126,7 @@ const Navbar = () => {
       >
         <Text fontSize="lg">
           <Link href="/works" passHref>
-            <ChakraLink>WORKS</ChakraLink>
+            <ChakraLink as="span">WORKS</ChakraLink>
           </Link>
         </Text>
       </Box>
@@ -143,7 +146,7 @@ const Navbar = () => {
       >
         <Text fontSize="lg">
           <Link href="/contact" passHref>
-            <ChakraLink>CONTACT</ChakraLink>
+            <ChakraLink as="span">CONTACT</ChakraLink>
           </Link>
         </Text>
       </Box>

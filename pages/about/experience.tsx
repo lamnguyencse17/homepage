@@ -60,6 +60,16 @@ const Experience: NextPage = () => {
                 <Text>Kobiton - KMS Technology</Text>
               </ChakraLink>
             </Link>
+
+            <Box width="50px">
+              <Divider borderWidth="1px" borderColor="grey.500" />
+            </Box>
+
+            <Link href="#eh" passHref>
+              <ChakraLink>
+                <Text>Employment Hero</Text>
+              </ChakraLink>
+            </Link>
           </Flex>
           <Box
             flex={1}
@@ -226,6 +236,89 @@ const Experience: NextPage = () => {
                       Providing documentations to multiple aspects of work:
                       setting up environments, coding conventions, system
                       structure
+                    </Text>
+                  </ListItem>
+                </UnorderedList>
+              </Box>
+            </Flex>
+            <Flex
+              direction="row"
+              width="100%"
+              marginTop="10rem"
+              as={motion.div}
+              whileInView={{ opacity: 1, transitionDuration: "1s", x: 0 }}
+              initial={{ opacity: 0, x: -10 }}
+              viewport={{ once: true }}
+              id="eh"
+            >
+              <Flex
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Text
+                  fontSize="md"
+                  fontWeight="medium"
+                  fontStyle="italic"
+                  textAlign="center"
+                  textColor="gray.500"
+                >
+                  September 2022
+                </Text>
+                <Box flex={1}>
+                  <Divider
+                    orientation="vertical"
+                    borderWidth="1.5px"
+                    borderColor="grey.500"
+                  />
+                </Box>
+                <Text
+                  fontSize="md"
+                  fontWeight="medium"
+                  fontStyle="italic"
+                  textAlign="center"
+                  textColor="gray.500"
+                >
+                  Present
+                </Text>
+              </Flex>
+              <Box flex={1} padding="10">
+                <ChakraLink href="https://employmenthero.com/">
+                  <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+                    Employment Hero
+                  </Text>
+                </ChakraLink>
+
+                <Text
+                  fontSize="lg"
+                  fontWeight="semibold"
+                  textAlign="center"
+                  textColor="gray.600"
+                  fontStyle="italic"
+                >
+                  Frontend Software Development Engineer 1
+                </Text>
+                <Text fontSize="md" textAlign="justify" marginTop="5">
+                  Technologies: React • React Native • TypeScript • Ruby
+                </Text>
+                <UnorderedList marginTop="5">
+                  <ListItem>
+                    <Text fontSize="md" textAlign="justify">
+                      Migrating features from Workzone app to Employment
+                      Hero&apos;s Swag app
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text fontSize="md" textAlign="justify">
+                      Maintaining current Swag app payroll features including:
+                      Expense, Timesheet, Leave,...
+                    </Text>
+                  </ListItem>
+                  <ListItem>
+                    <Text fontSize="md" textAlign="justify">
+                      Developing and migrating means for users with mixed
+                      payroll system to be able to use in Employment Hero&apos;s
+                      Swag app
                     </Text>
                   </ListItem>
                 </UnorderedList>

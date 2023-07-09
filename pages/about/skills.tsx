@@ -62,7 +62,7 @@ const Skills: NextPage = () => {
                   <Image src={CssIcon} alt="CSS skill" />
                 </Box>
               </Tooltip>
-              <Tooltip label="React" textColor="white">
+              <Tooltip label="React & React Native" textColor="white">
                 <Box>
                   <Image src={ReactIcon} alt="React skill" />
                 </Box>

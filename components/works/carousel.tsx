@@ -7,7 +7,7 @@ import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import ImageModal from "./imageModal";
 
 type CarouselProps = {
-  images: { src: StaticImageData; title?: string }[];
+  images: { src: StaticImageData; title: string }[];
 };
 
 const Carousel = ({ images }: CarouselProps) => {

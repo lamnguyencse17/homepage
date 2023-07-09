@@ -9,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
-import Image from "next/future/image";
+import Image from "next/image";
 import Link from "next/link";
 import AnimatedPage from "../../components/root/animatedPage";
 import SkillsIcon from "../../public/skills.svg";
@@ -59,7 +59,7 @@ const About: NextPage = () => {
             >
               <LinkBox width="100%" height="100%">
                 <Link href="/about/experience" passHref>
-                  <LinkOverlay>
+                  <LinkOverlay as="span">
                     <Flex direction="column" width="100%" height="100%">
                       <Box width="100%" flex="1">
                         <Image
@@ -95,7 +95,7 @@ const About: NextPage = () => {
             >
               <LinkBox width="100%" height="100%">
                 <Link href="/about/skills" passHref>
-                  <LinkOverlay>
+                  <LinkOverlay as="span">
                     <Flex direction="column" width="100%" height="100%">
                       <Box width="100%" flex="1">
                         <Image
@@ -131,7 +131,7 @@ const About: NextPage = () => {
             >
               <LinkBox width="100%" height="100%">
                 <Link href="/about/github" passHref>
-                  <LinkOverlay>
+                  <LinkOverlay as="span">
                     <Flex direction="column" width="100%" height="100%">
                       <Box width="100%" flex="1">
                         <Image

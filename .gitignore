@@ -37,3 +37,10 @@ next-env.d.ts
 
 # Sentry
 .sentryclirc
+
+.yarn/
+
+.env
+
+# Sentry Auth Token
+.sentryclirc

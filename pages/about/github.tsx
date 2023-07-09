@@ -3,18 +3,15 @@ import {
   Flex,
   Grid,
   GridItem,
-  Link,
   Tab,
   TabList,
   TabPanel,
   TabPanels,
   Tabs,
   Tag,
-  Text,
 } from "@chakra-ui/react";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import Image from "next/future/image";
 import AnimatedPage from "../../components/root/animatedPage";
 import {
   getAllRepositories,
