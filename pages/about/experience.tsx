@@ -19,6 +19,7 @@ const Experience: NextPage = () => {
     <>
       <Head>
         <title>Nguyen Quang Lam - Experience</title>
+        <meta name="description" content="Nguyen Quang Lam - Experience" />
       </Head>
       <AnimatedPage>
         <Flex

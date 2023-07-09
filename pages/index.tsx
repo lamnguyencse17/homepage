@@ -62,6 +62,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Nguyen Quang Lam - Home</title>
         <meta property="og:image" content={IndexPreview.src} />
+        <meta name="description" content="Nguyen Quang Lam - Home Page" />
       </Head>
       <AnimatedPage>
         <Flex

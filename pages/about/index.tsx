@@ -23,6 +23,7 @@ const About: NextPage = () => {
     <>
       <Head>
         <title>Nguyen Quang Lam - About</title>
+        <meta name="description" content="Nguyen Quang Lam - About" />
       </Head>
       <AnimatedPage>
         <Flex

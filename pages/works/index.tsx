@@ -26,6 +26,7 @@ const Works: NextPage = () => {
     <>
       <Head>
         <title>Nguyen Quang Lam - Works</title>
+        <meta name="description" content="Nguyen Quang Lam - Works" />
       </Head>
       <AnimatedPage>
         <Flex

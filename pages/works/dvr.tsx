@@ -134,6 +134,7 @@ const Dvr: NextPage<DvrProps> = ({
     <>
       <Head>
         <title>Nguyen Quang Lam - Youtube DVR</title>
+        <meta name="description" content="Nguyen Quang Lam - Youtube DVR" />
       </Head>
       <AnimatedPage>
         <Flex

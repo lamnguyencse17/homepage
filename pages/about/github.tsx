@@ -116,6 +116,7 @@ const GithubPage: NextPage<GithubPageProps> = ({
     <>
       <Head>
         <title>Nguyen Quang Lam - Github</title>
+        <meta name="description" content="Nguyen Quang Lam - Github" />
       </Head>
       <AnimatedPage>
         <Flex
